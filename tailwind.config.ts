@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: '#0C0E1A',
+        ink: '#0F1108',
         cream: '#F4F0E6',
         // Danfo yellow — primary brand action colour
         yellow: {
@@ -105,7 +105,7 @@ const config: Config = {
       boxShadow: {
         'glow-yellow': '0 0 40px rgba(255,184,0,0.22)',
         'glow-yellow-sm': '0 0 20px rgba(255,184,0,0.18)',
-        card: '0 1px 4px rgba(12,14,26,0.06), 0 4px 20px rgba(12,14,26,0.05)',
+        card: '0 1px 4px rgba(15,17,8,0.06), 0 4px 20px rgba(15,17,8,0.05)',
         'card-dark': '0 2px 8px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.2)',
         glass: '0 4px 24px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
       },

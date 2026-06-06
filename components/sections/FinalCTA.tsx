@@ -8,28 +8,22 @@ import { WaitlistForm } from '@/components/WaitlistForm'
 const CHIPS = [
   'Free to join',
   'First access',
-  'No spam — ever',
+  'No spam',
   'Early perks',
   'Join 2,859 waiting',
 ]
 
 function ChipStrip() {
-  const [activeIndex, setActiveIndex] = useState(-1)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
+  // Continuous cycling — each chip active for ~700ms, then moves to next
   useEffect(() => {
-    let current = 0
-    function fillNext() {
-      setActiveIndex(current)
-      current++
-      if (current < CHIPS.length) {
-        timerRef.current = setTimeout(fillNext, 550)
-      }
-    }
-    const start = setTimeout(fillNext, 800)
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % CHIPS.length)
+    }, 700)
     return () => {
-      clearTimeout(start)
-      if (timerRef.current) clearTimeout(timerRef.current)
+      if (intervalRef.current) clearInterval(intervalRef.current)
     }
   }, [])
 
@@ -39,8 +33,8 @@ function ChipStrip() {
         <span
           key={chip}
           role="listitem"
-          className={`chip-animate text-xs px-4 py-1.5 rounded-pill border font-medium transition-colors duration-200 ${
-            i <= activeIndex
+          className={`chip-animate text-xs px-4 py-1.5 rounded-pill border font-medium ${
+            i === activeIndex
               ? 'chip-active border-yellow-500 text-yellow-dark'
               : 'border-white/12 text-muted'
           }`}
@@ -56,10 +50,14 @@ export function FinalCTA() {
   return (
     <section id="waitlist" className="bg-ink py-24 sm:py-32 relative overflow-hidden">
       {/* Aurora glows */}
-      <div className="absolute inset-0 pointer-events-none"
-           style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,184,0,0.1) 0%, transparent 65%)' }} />
-      <div className="absolute bottom-0 inset-x-0 pointer-events-none"
-           style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,184,0,0.06) 0%, transparent 70%)' }} />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,184,0,0.1) 0%, transparent 65%)' }}
+      />
+      <div
+        className="absolute bottom-0 inset-x-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,184,0,0.06) 0%, transparent 70%)' }}
+      />
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent pointer-events-none" />
 
       <div className="relative max-w-2xl mx-auto px-5 sm:px-8 text-center">
@@ -72,9 +70,9 @@ export function FinalCTA() {
             className="font-display font-black text-cream leading-[1.05] tracking-tight mb-4"
             style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)' }}
           >
-            <FunHeadline as="span">Smarter banking.</FunHeadline>
+            <FunHeadline as="span">Smarter Banking</FunHeadline>
             <br />
-            <FunHeadline as="span">Just by talking.</FunHeadline>
+            <FunHeadline as="span">Just by Typing</FunHeadline>
           </h2>
           <p className="text-muted text-base leading-relaxed mb-10">
             Be first when didii opens up. 60 seconds. No card, no wahala.
@@ -85,7 +83,7 @@ export function FinalCTA() {
             <WaitlistForm dark />
           </div>
 
-          {/* Sequential chip fill */}
+          {/* Sequential chip fill — continuous cycling */}
           <ChipStrip />
         </StaggerReveal>
       </div>

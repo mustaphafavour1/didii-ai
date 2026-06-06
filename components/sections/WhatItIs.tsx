@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FunHeadline } from '@/components/FunHeadline'
 import { StaggerReveal } from '@/components/StaggerReveal'
 
@@ -6,110 +7,131 @@ export function WhatItIs() {
     <section id="what-it-is" className="bg-cream py-24 sm:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
-        {/* Header */}
-        <StaggerReveal className="mb-14 text-center">
+        {/* Header — centered */}
+        <StaggerReveal className="mb-16 text-center">
           <p className="text-terracotta text-xs font-semibold tracking-[0.15em] uppercase mb-4">
             ONE APP · TWO WAYS IN
           </p>
-          <FunHeadline
-            as="h2"
+          <h2
             className="font-display font-black text-ink leading-tight tracking-tight mx-auto max-w-2xl"
             style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
           >
-            In the app. Or right inside your browser.
-          </FunHeadline>
+            <FunHeadline as="span">An App and Right inside</FunHeadline>
+            <br />
+            <FunHeadline as="span">your browser too</FunHeadline>
+          </h2>
         </StaggerReveal>
 
         {/* Two cards */}
         <div className="grid md:grid-cols-2 gap-6">
 
-          {/* App card */}
+          {/* App card — dark bg */}
           <StaggerReveal delay={0.08}>
-            <div className="relative rounded-modal bg-ink overflow-hidden p-8 flex flex-col gap-5 min-h-[320px]"
-                 style={{ boxShadow: '0 2px 8px rgba(12,14,26,0.15), 0 8px 32px rgba(12,14,26,0.2)' }}>
-              <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none opacity-40"
-                   style={{ background: 'radial-gradient(ellipse at top right, rgba(255,184,0,0.25), transparent 65%)' }} />
+            <div className="flex flex-col">
+              <div
+                className="relative rounded-modal bg-ink overflow-hidden flex flex-col items-center justify-center p-8 gap-6"
+                style={{
+                  minHeight: '360px',
+                  boxShadow: '0 2px 8px rgba(15,17,8,0.15), 0 8px 32px rgba(15,17,8,0.2)',
+                }}
+              >
+                {/* Subtle yellow tint */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 70% 20%, rgba(255,184,0,0.12), transparent 65%)' }}
+                />
 
-              <div className="relative z-10 flex flex-col gap-5 h-full">
-                <div className="w-12 h-12 rounded-2xl bg-yellow-500/15 border border-yellow-500/25 flex items-center justify-center">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                    <rect x="5" y="2" width="12" height="18" rx="2.5" stroke="#FFB800" strokeWidth="1.5"/>
-                    <path d="M9 5h4M11 17h.01" stroke="#FFB800" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
+                {/* Small phone frame thumbnail — not full screen */}
+                <div className="relative z-10">
+                  <div
+                    className="relative rounded-[20px] border border-white/12 overflow-hidden mx-auto"
+                    style={{
+                      width: 120,
+                      aspectRatio: '9/19.5',
+                      boxShadow: '0 0 0 1px rgba(255,255,255,0.05), 0 16px 40px rgba(0,0,0,0.5), 0 0 40px rgba(255,184,0,0.1)',
+                    }}
+                  >
+                    <Image
+                      src="/app/screen-1.svg"
+                      alt="didii app home screen"
+                      fill
+                      className="object-cover"
+                      sizes="120px"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-display font-bold text-cream text-2xl mb-2">The app</h3>
-                  <p className="text-muted leading-relaxed text-sm">
-                    Your whole money life in one chat. Send, pay bills, save, cash out crypto.
-                    Talk Pidgin, Yoruba, Hausa, Igbo or English — didii understands all of it.
-                  </p>
-                </div>
-
-                {/* Language pills */}
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {['Pidgin', 'Yoruba', 'Hausa', 'Igbo', 'English'].map((lang) => (
-                    <span key={lang}
-                          className="text-xs px-2.5 py-1 rounded-pill border border-white/10 text-cream/60 bg-white/5">
-                      {lang}
-                    </span>
-                  ))}
-                </div>
+                <p className="relative z-10 text-cream/60 text-sm text-center">The app</p>
               </div>
+
+              {/* Footnote below card */}
+              <p className="mt-3 text-ink/40 text-xs leading-relaxed px-1">
+                ¹ Your whole money life in one chat — send, save, pay bills, and cash out crypto.
+              </p>
             </div>
           </StaggerReveal>
 
-          {/* Widget card */}
+          {/* Browser widget card — light/cream bg */}
           <StaggerReveal delay={0.16}>
-            <div className="relative rounded-modal bg-white border border-ink/8 overflow-hidden p-8 flex flex-col gap-5 min-h-[320px]"
-                 style={{ boxShadow: '0 2px 8px rgba(12,14,26,0.06), 0 8px 32px rgba(12,14,26,0.06)' }}>
-              <div className="absolute bottom-0 left-0 w-64 h-64 pointer-events-none opacity-25"
-                   style={{ background: 'radial-gradient(ellipse at bottom left, rgba(226,97,60,0.3), transparent 65%)' }} />
+            <div className="flex flex-col">
+              <div
+                className="relative rounded-modal overflow-hidden flex flex-col items-center justify-center p-8 gap-6"
+                style={{
+                  minHeight: '360px',
+                  background: '#E8E4D9',
+                  boxShadow: '0 2px 8px rgba(15,17,8,0.06), 0 8px 32px rgba(15,17,8,0.06)',
+                }}
+              >
+                {/* Subtle tint */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 30% 80%, rgba(226,97,60,0.08), transparent 60%)' }}
+                />
 
-              <div className="relative z-10 flex flex-col gap-5 h-full">
-                <div className="w-12 h-12 rounded-2xl bg-terracotta/10 border border-terracotta/20 flex items-center justify-center">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                    <rect x="2" y="4" width="18" height="13" rx="2" stroke="#E2613C" strokeWidth="1.5"/>
-                    <path d="M7 18h8M11 18v-1" stroke="#E2613C" strokeWidth="1.5" strokeLinecap="round"/>
-                    <rect x="6" y="8" width="10" height="5" rx="1" fill="#E2613C" opacity="0.3"/>
-                  </svg>
-                </div>
+                {/* Chrome browser mockup */}
+                <div className="relative z-10 w-full max-w-[280px]">
+                  <div className="rounded-xl border border-ink/12 bg-white overflow-hidden shadow-md">
+                    {/* Browser chrome */}
+                    <div className="flex items-center gap-1.5 px-3 py-2.5 bg-ink/5 border-b border-ink/8">
+                      {['bg-red-400', 'bg-yellow-400', 'bg-green-400'].map((c) => (
+                        <span key={c} className={`w-2.5 h-2.5 rounded-full ${c}`} />
+                      ))}
+                      <div className="ml-2 flex-1 bg-ink/8 rounded-full h-5 flex items-center px-2.5">
+                        <span className="text-ink/30 text-[9px] truncate">mybank.ng/transfer</span>
+                      </div>
+                    </div>
+                    {/* Page content */}
+                    <div className="p-4 relative" style={{ minHeight: 130 }}>
+                      <div className="h-4 w-32 bg-ink/8 rounded mb-3" />
+                      <div className="h-3 w-full bg-ink/5 rounded mb-2" />
+                      <div className="h-3 w-3/4 bg-ink/5 rounded mb-2" />
+                      <div className="h-3 w-1/2 bg-ink/5 rounded mb-4" />
+                      <div className="h-8 w-24 bg-ink/8 rounded-lg" />
 
-                <div>
-                  <h3 className="font-display font-bold text-ink text-2xl mb-2">The browser widget</h3>
-                  <p className="text-ink/60 leading-relaxed text-sm">
-                    Summon didii on any website. Paying a bill online, at checkout, copying an account number?
-                    Tap, talk, done — without leaving the page.
-                  </p>
-                </div>
-
-                {/* Browser mockup */}
-                <div className="mt-auto rounded-xl border border-ink/10 bg-white overflow-hidden shadow-sm">
-                  <div className="flex items-center gap-1.5 px-3 py-2 bg-ink/5 border-b border-ink/8">
-                    {['bg-red-400','bg-yellow-400','bg-green-400'].map(c => (
-                      <span key={c} className={`w-2 h-2 rounded-full ${c}`} />
-                    ))}
-                    <span className="ml-2 text-ink/30 text-[10px] flex-1 truncate">paystack.com/checkout</span>
-                  </div>
-                  <div className="p-3 relative">
-                    <div className="h-7 bg-ink/5 rounded mb-2" />
-                    <div className="h-3.5 w-2/3 bg-ink/5 rounded" />
-                    <div className="absolute bottom-2 right-2 flex items-center gap-1.5 bg-ink rounded-lg px-2.5 py-1.5 shadow-card-dark text-[10px] text-cream font-medium">
-                      <span className="w-4 h-4 rounded-md bg-yellow-500 flex items-center justify-center text-[8px] font-bold font-display text-yellow-dark">d</span>
-                      Pay with didii ↗
+                      {/* didii widget overlay — bottom right */}
+                      <div
+                        className="absolute bottom-3 right-3 flex items-center gap-2 bg-ink rounded-xl px-3 py-2 shadow-xl"
+                        style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.25)' }}
+                      >
+                        <div className="w-5 h-5 rounded-lg bg-yellow-500 flex items-center justify-center flex-shrink-0">
+                          <span className="font-display font-bold text-yellow-dark text-[10px]">d</span>
+                        </div>
+                        <span className="text-cream text-[10px] font-medium whitespace-nowrap">Pay with didii ↗</span>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                <p className="relative z-10 text-ink/50 text-sm text-center">The browser widget</p>
               </div>
+
+              {/* Footnote below card */}
+              <p className="mt-3 text-ink/40 text-xs leading-relaxed px-1">
+                ² Summon didii on any website. Paying a bill, at checkout, copying account numbers — tap, talk, done.
+              </p>
             </div>
           </StaggerReveal>
         </div>
-
-        {/* Footnote captions */}
-        <StaggerReveal delay={0.28} className="mt-6 flex flex-col sm:flex-row gap-4 text-ink/40 text-xs">
-          <p className="flex-1">¹ The app is your primary didii experience — full wallet, full chat, full history.</p>
-          <p className="flex-1">² The browser widget lets you access didii without opening the app. Works on Chrome and Firefox.</p>
-        </StaggerReveal>
       </div>
     </section>
   )

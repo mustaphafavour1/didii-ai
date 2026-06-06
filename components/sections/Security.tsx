@@ -53,29 +53,50 @@ export function Security() {
 
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* Left: Shield + 2x2 features */}
+          {/* Left: Shield + 2x2 feature grid on top */}
           <StaggerReveal>
             <div className="relative">
-              {/* Large shield SVG */}
+              {/* Big shield SVG — centered, tall */}
               <div className="flex justify-center mb-10">
                 <div className="relative">
-                  <svg width="120" height="140" viewBox="0 0 120 140" fill="none" aria-hidden="true">
-                    <path d="M60 8L12 30v40c0 30 22.5 56 48 64 25.5-8 48-34 48-64V30L60 8z"
-                          fill="rgba(255,184,0,0.1)" stroke="#FFB800" strokeWidth="2"/>
-                    <path d="M44 70l12 12 24-24" stroke="#FFB800" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    width="180"
+                    height="210"
+                    viewBox="0 0 120 140"
+                    fill="none"
+                    aria-hidden="true"
+                    className="mx-auto"
+                  >
+                    <path
+                      d="M60 8L12 30v40c0 30 22.5 56 48 64 25.5-8 48-34 48-64V30L60 8z"
+                      fill="rgba(255,184,0,0.08)"
+                      stroke="#FFB800"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="M44 70l12 12 24-24"
+                      stroke="#FFB800"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                   {/* Glow under shield */}
-                  <div className="absolute bottom-0 inset-x-0 h-12 blur-2xl"
-                       style={{ background: 'radial-gradient(ellipse, rgba(255,184,0,0.3), transparent 70%)' }} />
+                  <div
+                    className="absolute bottom-0 inset-x-0 h-16 blur-2xl pointer-events-none"
+                    style={{ background: 'radial-gradient(ellipse, rgba(255,184,0,0.25), transparent 70%)' }}
+                  />
                 </div>
               </div>
 
               {/* 2×2 feature grid */}
               <div className="grid grid-cols-2 gap-4">
-                {PILLARS.map((pillar, i) => (
-                  <div key={pillar.title}
-                       className="rounded-xl border border-ink/8 bg-white p-5 flex flex-col gap-3"
-                       style={{ boxShadow: '0 1px 4px rgba(12,14,26,0.05)' }}>
+                {PILLARS.map((pillar) => (
+                  <div
+                    key={pillar.title}
+                    className="rounded-xl border border-ink/8 bg-white p-5 flex flex-col gap-3"
+                    style={{ boxShadow: '0 1px 4px rgba(15,17,8,0.05)' }}
+                  >
                     <div className="w-9 h-9 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center">
                       {pillar.icon}
                     </div>
@@ -89,7 +110,7 @@ export function Security() {
             </div>
           </StaggerReveal>
 
-          {/* Right: Text + chips */}
+          {/* Right: eyebrow + title + subtitle + trust chips */}
           <StaggerReveal delay={0.15} direction="right">
             <p className="text-yellow-600 text-xs font-semibold tracking-[0.15em] uppercase mb-5">
               BANK-GRADE SECURITY
@@ -116,8 +137,10 @@ export function Security() {
                 '✅ CBN Licensed',
                 '🧬 Biometric login',
               ].map((chip) => (
-                <span key={chip}
-                      className="text-xs px-3.5 py-1.5 rounded-pill border border-ink/12 text-ink/60 bg-ink/4">
+                <span
+                  key={chip}
+                  className="text-xs px-3.5 py-1.5 rounded-pill border border-ink/12 text-ink/60 bg-ink/4"
+                >
                   {chip}
                 </span>
               ))}

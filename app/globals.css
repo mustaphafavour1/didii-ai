@@ -9,7 +9,7 @@
 :root {
   --yellow: #FFB800;
   --yellow-dark: #1A1200;
-  --ink: #0C0E1A;
+  --ink: #0F1108;
   --cream: #F4F0E6;
   --terracotta: #E2613C;
   --muted: #8E90A6;
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background-color: #0C0E1A;
+  background-color: #0F1108;
   color: #F4F0E6;
   font-family: var(--font-hanken), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -155,7 +155,6 @@ body {
 :focus-visible {
   outline: 2px solid #FFB800;
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
 /* ─── Selection ─────────────────────────────────────────────── */

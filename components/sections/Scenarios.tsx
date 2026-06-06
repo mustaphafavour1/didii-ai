@@ -28,7 +28,7 @@ const SCENARIOS = [
     emoji: '📷',
     title: 'Pay from a screenshot',
     tag: 'Snap to pay',
-    before: 'Switching apps, retyping account numbers by hand, praying you don\'t make an error...',
+    before: "Switching apps, retyping account numbers by hand, praying you don't make an error...",
     userMsg: '[Photo of bank details]',
     didiiReply: 'GTBank · Olu Adeyemi · 0123456789. Pay ₦8,500?',
     toast: '✓ Paid · ₦8,500',
@@ -70,7 +70,7 @@ export function Scenarios() {
     <section id="scenarios" className="bg-cream py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
-        {/* Header */}
+        {/* Header — centered */}
         <StaggerReveal className="mb-14 text-center">
           <p className="text-terracotta text-xs font-semibold tracking-[0.15em] uppercase mb-4">
             REAL LIFE
@@ -117,7 +117,7 @@ export function Scenarios() {
             ))}
           </div>
 
-          {/* Right: scenario detail */}
+          {/* Right: scenario detail — phone-width proportions */}
           <StaggerReveal delay={0.15} direction="right" className="sticky top-24">
             <AnimatePresence mode="wait">
               <motion.div
@@ -126,17 +126,20 @@ export function Scenarios() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -16, scale: 0.98 }}
                 transition={{ duration: 0.28 }}
-                className="rounded-modal bg-ink overflow-hidden"
-                style={{ boxShadow: '0 2px 8px rgba(12,14,26,0.2), 0 8px 32px rgba(12,14,26,0.3)' }}
+                className="rounded-modal bg-ink overflow-hidden mx-auto"
+                style={{
+                  maxWidth: '280px',
+                  boxShadow: '0 2px 8px rgba(15,17,8,0.2), 0 8px 32px rgba(15,17,8,0.3)',
+                }}
               >
-                {/* Before */}
-                <div className="px-6 pt-6 pb-4 border-b border-white/8">
+                {/* Before didii */}
+                <div className="px-5 pt-5 pb-4 border-b border-white/8">
                   <p className="text-muted text-[10px] font-semibold uppercase tracking-wider mb-2">Before didii</p>
                   <p className="text-muted/70 text-sm leading-relaxed">{s.before}</p>
                 </div>
 
                 {/* With didii */}
-                <div className="px-6 pt-4 pb-6 flex flex-col gap-3">
+                <div className="px-5 pt-4 pb-5 flex flex-col gap-3">
                   <p className="text-yellow-500 text-[10px] font-semibold uppercase tracking-wider">With didii</p>
 
                   {/* User bubble */}
