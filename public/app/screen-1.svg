@@ -1,0 +1,62 @@
+<svg viewBox="0 0 375 812" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- bg -->
+  <rect width="375" height="812" fill="#0C0E1A"/>
+
+  <!-- status bar -->
+  <text x="24" y="24" font-family="system-ui" font-size="11" fill="rgba(244,240,230,0.4)">9:41</text>
+
+  <!-- header -->
+  <rect x="0" y="36" width="375" height="52" fill="rgba(255,255,255,0.04)"/>
+  <rect x="16" y="50" width="24" height="24" rx="8" fill="#4B3DF5"/>
+  <text x="24" y="66" font-family="system-ui" font-weight="700" font-size="12" fill="white" text-anchor="middle">d</text>
+  <text x="52" y="60" font-family="system-ui" font-weight="700" font-size="15" fill="#F4F0E6">didii</text>
+  <text x="52" y="75" font-family="system-ui" font-size="10" fill="#8E90A6">AI money assistant</text>
+
+  <!-- chat messages -->
+  <!-- User msg 1 -->
+  <rect x="180" y="110" width="179" height="36" rx="12" fill="#4B3DF5"/>
+  <text x="200" y="130" font-family="system-ui" font-size="11" fill="white">abeg send 20k to mama</text>
+
+  <!-- didii reply 1 -->
+  <rect x="16" y="160" width="220" height="52" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="28" y="178" font-family="system-ui" font-size="11" fill="#F4F0E6">Send ₦20,000 to Mama —</text>
+  <text x="28" y="195" font-family="system-ui" font-size="11" fill="#F4F0E6">GTBank 0123456789. I do am?</text>
+  <!-- action buttons -->
+  <rect x="16" y="224" width="96" height="28" rx="14" fill="#4B3DF5"/>
+  <text x="64" y="242" font-family="system-ui" font-weight="600" font-size="10" fill="white" text-anchor="middle">Oya, send it</text>
+  <rect x="120" y="224" width="60" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="150" y="242" font-family="system-ui" font-size="10" fill="#8E90A6" text-anchor="middle">Change</text>
+
+  <!-- toast -->
+  <rect x="16" y="268" width="343" height="44" rx="12" fill="rgba(75,61,245,0.15)" stroke="rgba(75,61,245,0.3)" stroke-width="1"/>
+  <text x="36" y="294" font-family="system-ui" font-size="13" fill="#F4F0E6">✓</text>
+  <text x="60" y="291" font-family="system-ui" font-weight="600" font-size="12" fill="#F4F0E6">Sent to Mama · ₦20,000</text>
+
+  <!-- nudge -->
+  <rect x="16" y="320" width="343" height="40" rx="12" fill="rgba(185,168,255,0.08)" stroke="rgba(185,168,255,0.2)" stroke-width="1"/>
+  <text x="28" y="344" font-family="system-ui" font-size="11" fill="#B9A8FF">🔔 Bills due Friday · ₦13,500</text>
+
+  <!-- User msg 2 -->
+  <rect x="220" y="380" width="139" height="36" rx="12" fill="#4B3DF5"/>
+  <text x="240" y="402" font-family="system-ui" font-size="11" fill="white">buy MTN 5gb data</text>
+
+  <!-- didii reply 2 -->
+  <rect x="16" y="428" width="240" height="52" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="28" y="448" font-family="system-ui" font-size="11" fill="#F4F0E6">Top up MTN 5GB for</text>
+  <text x="28" y="465" font-family="system-ui" font-size="11" fill="#F4F0E6">080····7890 — ₦2,000. I do am?</text>
+
+  <!-- divider -->
+  <rect x="16" y="500" width="343" height="1" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- wallet balance bar -->
+  <rect x="16" y="516" width="343" height="80" rx="16" fill="rgba(75,61,245,0.12)" stroke="rgba(75,61,245,0.2)" stroke-width="1"/>
+  <text x="32" y="545" font-family="system-ui" font-size="10" fill="#8E90A6">Wallet balance</text>
+  <text x="32" y="572" font-family="system-ui" font-weight="800" font-size="24" fill="#F4F0E6">₦184,200</text>
+  <text x="280" y="572" font-family="system-ui" font-size="10" fill="#4B3DF5">Fund →</text>
+
+  <!-- bottom input -->
+  <rect x="16" y="752" width="343" height="44" rx="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="40" y="779" font-family="system-ui" font-size="12" fill="#8E90A6">Type anything...</text>
+  <circle cx="342" cy="774" r="14" fill="#4B3DF5"/>
+  <path d="M337 774 L347 774 M342 769 L347 774 L342 779" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

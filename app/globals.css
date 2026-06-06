@@ -1,0 +1,182 @@
+/* Panchang variable font from Fontshare */
+@import url('https://api.fontshare.com/v2/css?f[]=panchang@200,300,400,500,600,700,800,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ──────────────────────────────────────────────────── */
+:root {
+  --font-panchang: 'Panchang', system-ui, sans-serif;
+  color-scheme: dark light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #0C0E1A;
+  color: #F4F0E6;
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Typography ────────────────────────────────────────────── */
+.font-display {
+  font-family: 'Panchang', system-ui, sans-serif;
+}
+
+/* Fun letter treatment — applied to specific glyphs in display headlines */
+.fun-letter {
+  color: #E2613C;
+  font-style: italic;
+  /* Boost weight within variable font range */
+  font-variation-settings: 'wght' 800;
+  display: inline-block;
+}
+
+/* ─── Caret animation for TypeItOut ────────────────────────── */
+@keyframes caret-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.typing-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: currentColor;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: caret-blink 0.9s step-end infinite;
+  border-radius: 1px;
+}
+
+/* ─── Aurora glow ───────────────────────────────────────────── */
+.aurora-blob {
+  pointer-events: none;
+  animation: aurora 6s ease-in-out infinite;
+}
+
+@keyframes aurora {
+  0%, 100% { opacity: 0.55; transform: scale(1) rotate(0deg); }
+  33% { opacity: 0.75; transform: scale(1.08) rotate(4deg); }
+  66% { opacity: 0.6; transform: scale(0.96) rotate(-3deg); }
+}
+
+/* ─── Shimmer gradient text ─────────────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #B9A8FF 0%,
+    #ffffff 35%,
+    #B9A8FF 50%,
+    #4B3DF5 65%,
+    #B9A8FF 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Glass card ────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.glass-cream {
+  background: rgba(244, 240, 230, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(12, 14, 26, 0.08);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(142, 144, 166, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(142, 144, 166, 0.7);
+}
+
+/* ─── Focus ring ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #4B3DF5;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Selection ─────────────────────────────────────────────── */
+::selection {
+  background: rgba(75, 61, 245, 0.35);
+  color: #F4F0E6;
+}
+
+/* ─── Horizontal scroll snap ────────────────────────────────── */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-snap-item {
+  scroll-snap-align: start;
+}
+
+/* ─── Dot typing indicator ──────────────────────────────────── */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+/* ─── prefers-reduced-motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .typing-caret {
+    opacity: 0;
+  }
+}
