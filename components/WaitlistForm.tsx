@@ -41,15 +41,15 @@ export function WaitlistForm({ dark = false }: { dark?: boolean }) {
     'flex-1 min-w-0 rounded-pill px-5 py-3 text-sm focus:outline-none transition-all duration-150'
 
   const inputClasses = dark
-    ? `${inputBase} bg-white/8 border border-white/12 text-cream placeholder:text-muted focus:border-indigo focus:ring-1 focus:ring-indigo/50`
-    : `${inputBase} bg-cream border border-ink/12 text-ink placeholder:text-muted focus:border-indigo focus:ring-1 focus:ring-indigo/50`
+    ? `${inputBase} bg-white/8 border border-white/12 text-cream placeholder:text-muted focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/40`
+    : `${inputBase} bg-cream border border-ink/12 text-ink placeholder:text-muted focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/40`
 
   if (status === 'success') {
     return (
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex items-center gap-3 px-5 py-4 rounded-2xl bg-indigo/15 border border-indigo/30"
+        className="flex items-center gap-3 px-5 py-4 rounded-2xl bg-yellow-500/15 border border-yellow-500/30"
       >
         <span className="text-2xl">🎉</span>
         <p className={`text-sm font-medium ${dark ? 'text-cream' : 'text-ink'}`}>{message}</p>
@@ -73,7 +73,7 @@ export function WaitlistForm({ dark = false }: { dark?: boolean }) {
         <button
           type="submit"
           disabled={status === 'loading' || !email.trim()}
-          className="rounded-pill px-6 py-3 bg-indigo text-white text-sm font-semibold hover:bg-indigo-600 active:scale-95 transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+          className="rounded-pill px-6 py-3 bg-yellow-500 text-yellow-dark text-sm font-bold hover:bg-yellow-400 active:scale-95 transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
         >
           {status === 'loading' ? (
             <span className="flex items-center gap-2">

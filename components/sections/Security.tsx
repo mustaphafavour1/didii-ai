@@ -4,109 +4,126 @@ import { StaggerReveal } from '@/components/StaggerReveal'
 const PILLARS = [
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7l-9-5z" stroke="#B9A8FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M9 12l2 2 4-4" stroke="#B9A8FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M11 2L3 6v4c0 5.25 3.75 9.15 8 10.35C15.25 19.15 19 15.25 19 10V6l-8-4z" stroke="#FFB800" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M8 11l2 2 4-4" stroke="#FFB800" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: 'Anchor partner bank',
-    body: 'Funds held in a CBN-licensed banking partner. Your money never passes through a ledger without regulatory cover.',
+    body: 'Funds held in a CBN-licensed banking partner. Regulatory cover on every naira.',
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="3" y="11" width="18" height="11" rx="2" stroke="#B9A8FF" strokeWidth="1.5"/>
-        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#B9A8FF" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="12" cy="16" r="1.5" fill="#B9A8FF"/>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect x="3" y="10" width="16" height="10" rx="2" stroke="#FFB800" strokeWidth="1.4"/>
+        <path d="M7 10V6a5 5 0 0 1 10 0v4" stroke="#FFB800" strokeWidth="1.4" strokeLinecap="round"/>
+        <circle cx="12" cy="15" r="1.5" fill="#FFB800"/>
       </svg>
     ),
     title: '256-bit encryption',
-    body: 'Every message, every transaction, every session is encrypted end-to-end. No plain-text data anywhere in the stack.',
+    body: 'Every message, every transaction encrypted end-to-end. No plain-text data anywhere.',
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#B9A8FF" strokeWidth="1.5"/>
-        <path d="M12 6v6l4 2" stroke="#B9A8FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#FFB800" strokeWidth="1.4"/>
+        <path d="M12 6v6l4 2" stroke="#FFB800" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: 'Your yes, always',
-    body: 'Money never moves without your explicit confirmation. No auto-debits without consent. No surprise transactions.',
+    body: 'Money never moves without your explicit confirmation. No surprise auto-debits.',
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="2" y="3" width="20" height="14" rx="2" stroke="#B9A8FF" strokeWidth="1.5"/>
-        <path d="M8 21h8M12 17v4" stroke="#B9A8FF" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M7 10h2l2-4 2 6 2-3h2" stroke="#B9A8FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect x="2" y="3" width="18" height="13" rx="2" stroke="#FFB800" strokeWidth="1.4"/>
+        <path d="M8 20h8M12 16v4" stroke="#FFB800" strokeWidth="1.4" strokeLinecap="round"/>
+        <path d="M6 9h2l2-3 2 5 2-2h2" stroke="#FFB800" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: 'NDIC-insured deposits',
-    body: 'Deposits insured by the Nigeria Deposit Insurance Corporation up to ₦5,000,000. Your savings are protected.',
+    body: 'Deposits insured up to ₦5,000,000 by the Nigeria Deposit Insurance Corporation.',
   },
 ]
 
 export function Security() {
   return (
-    <section id="security" className="bg-ink py-24 sm:py-32 relative overflow-hidden">
-      {/* subtle grid bg */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-           style={{ backgroundImage: 'linear-gradient(rgba(185,168,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(185,168,255,1) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
+    <section id="security" className="bg-cream py-24 sm:py-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-        {/* Header */}
-        <StaggerReveal className="mb-14 text-center max-w-2xl mx-auto">
-          <p className="text-lilac text-xs font-semibold tracking-[0.15em] uppercase mb-4">
-            BANK-GRADE SECURITY
-          </p>
-          <FunHeadline
-            as="h2"
-            className="font-display font-black text-cream leading-tight tracking-tight"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
-          >
-            Built like a vault. Moves like a chat.
-          </FunHeadline>
-          <p className="text-muted text-base mt-4 leading-relaxed">
-            Biometric login, PIN per transaction, real-time fraud detection.
-            All the security of traditional banking — none of the friction.
-          </p>
-        </StaggerReveal>
-
-        {/* Pillars */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {PILLARS.map((pillar, i) => (
-            <StaggerReveal key={pillar.title} delay={i * 0.08}>
-              <div className="glass rounded-modal p-6 flex flex-col gap-4 h-full hover:bg-white/8 transition-colors duration-200">
-                <div className="w-11 h-11 rounded-2xl bg-lilac/10 border border-lilac/20 flex items-center justify-center">
-                  {pillar.icon}
-                </div>
-                <div>
-                  <h3 className="text-cream font-semibold text-base mb-2 leading-snug">{pillar.title}</h3>
-                  <p className="text-muted text-sm leading-relaxed">{pillar.body}</p>
+          {/* Left: Shield + 2x2 features */}
+          <StaggerReveal>
+            <div className="relative">
+              {/* Large shield SVG */}
+              <div className="flex justify-center mb-10">
+                <div className="relative">
+                  <svg width="120" height="140" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+                    <path d="M60 8L12 30v40c0 30 22.5 56 48 64 25.5-8 48-34 48-64V30L60 8z"
+                          fill="rgba(255,184,0,0.1)" stroke="#FFB800" strokeWidth="2"/>
+                    <path d="M44 70l12 12 24-24" stroke="#FFB800" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  {/* Glow under shield */}
+                  <div className="absolute bottom-0 inset-x-0 h-12 blur-2xl"
+                       style={{ background: 'radial-gradient(ellipse, rgba(255,184,0,0.3), transparent 70%)' }} />
                 </div>
               </div>
-            </StaggerReveal>
-          ))}
-        </div>
 
-        {/* Trust badge strip */}
-        <StaggerReveal delay={0.35} className="mt-10">
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              '🏦 Anchor Partner Bank',
-              '🛡️ NDIC Insured',
-              '✅ CBN Licensed',
-              '🔐 256-bit TLS',
-              '🧬 Biometric login',
-            ].map((badge) => (
-              <span key={badge}
-                    className="text-xs px-3.5 py-1.5 rounded-pill border border-white/10 text-muted bg-white/4">
-                {badge}
-              </span>
-            ))}
-          </div>
-        </StaggerReveal>
+              {/* 2×2 feature grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {PILLARS.map((pillar, i) => (
+                  <div key={pillar.title}
+                       className="rounded-xl border border-ink/8 bg-white p-5 flex flex-col gap-3"
+                       style={{ boxShadow: '0 1px 4px rgba(12,14,26,0.05)' }}>
+                    <div className="w-9 h-9 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center">
+                      {pillar.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-ink font-semibold text-sm mb-1 leading-snug">{pillar.title}</h3>
+                      <p className="text-ink/50 text-xs leading-relaxed">{pillar.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </StaggerReveal>
+
+          {/* Right: Text + chips */}
+          <StaggerReveal delay={0.15} direction="right">
+            <p className="text-yellow-600 text-xs font-semibold tracking-[0.15em] uppercase mb-5">
+              BANK-GRADE SECURITY
+            </p>
+            <h2
+              className="font-display font-black text-ink leading-tight tracking-tight mb-6"
+              style={{ fontSize: 'clamp(1.9rem, 4vw, 3.25rem)' }}
+            >
+              <FunHeadline as="span">Built like a vault.</FunHeadline>
+              <br />
+              <FunHeadline as="span">Moves like a chat.</FunHeadline>
+            </h2>
+            <p className="text-ink/55 text-base leading-relaxed max-w-md mb-8">
+              Biometric login, PIN per transaction, real-time fraud detection.
+              All the security of traditional banking — none of the friction.
+            </p>
+
+            {/* Trust chips */}
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                '🏦 Anchor Partner Bank',
+                '🔒 256-bit TLS',
+                '🛡️ NDIC Insured',
+                '✅ CBN Licensed',
+                '🧬 Biometric login',
+              ].map((chip) => (
+                <span key={chip}
+                      className="text-xs px-3.5 py-1.5 rounded-pill border border-ink/12 text-ink/60 bg-ink/4">
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </StaggerReveal>
+        </div>
       </div>
     </section>
   )

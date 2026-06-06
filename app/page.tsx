@@ -2,7 +2,6 @@ import { Navbar }       from '@/components/ui/Navbar'
 import { Footer }       from '@/components/ui/Footer'
 import { Hero }         from '@/components/sections/Hero'
 import { WhatItIs }     from '@/components/sections/WhatItIs'
-import { StatsStrip }   from '@/components/sections/StatsStrip'
 import { HowItWorks }   from '@/components/sections/HowItWorks'
 import { InputModes }   from '@/components/sections/InputModes'
 import { Scenarios }    from '@/components/sections/Scenarios'
@@ -21,7 +20,6 @@ export default function Home() {
       <main>
         <Hero />
         <WhatItIs />
-        <StatsStrip />
         <HowItWorks />
         <InputModes />
         <Scenarios />

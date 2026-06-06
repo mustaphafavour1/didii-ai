@@ -4,60 +4,63 @@ import { StaggerReveal } from '@/components/StaggerReveal'
 
 export function TryIt() {
   return (
-    <section id="try-it" className="bg-indigo py-24 sm:py-32 relative overflow-hidden">
-      {/* bg pattern */}
+    <section id="try-it" className="py-24 sm:py-32 relative overflow-hidden"
+             style={{ background: 'linear-gradient(135deg, #1A1200 0%, #2A1E00 50%, #1A1200 100%)' }}>
+      {/* Yellow glow */}
       <div className="absolute inset-0 pointer-events-none"
-           style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 110%, rgba(185,168,255,0.2) 0%, transparent 65%)' }} />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+           style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,184,0,0.12) 0%, transparent 70%)' }} />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 text-center">
 
         <StaggerReveal>
-          <p className="text-white/60 text-xs font-semibold tracking-[0.15em] uppercase mb-5">
-            TRY IT NOW
+          <p className="text-yellow-500/70 text-xs font-semibold tracking-[0.15em] uppercase mb-5">
+            GET EARLY ACCESS
           </p>
-          <FunHeadline
-            as="h2"
-            className="font-display font-black text-white leading-tight tracking-tight mx-auto mb-5"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+          <h2
+            className="font-display font-black text-cream leading-tight tracking-tight mx-auto mb-5"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
           >
-            The whole thing, right inside your browser.
-          </FunHeadline>
-          <p className="text-white/70 text-base leading-relaxed max-w-xl mx-auto mb-10">
-            This is the live prototype — onboarding, chat, wallet, card, the lot.
-            Money moves are simulated. Real didii vibes, no real naira moving yet.
+            <FunHeadline as="span">Ready to have</FunHeadline>
+            <br />
+            <span className="text-yellow-500 font-display font-black">a taste??</span>
+          </h2>
+          <p className="text-cream/50 text-base leading-relaxed max-w-lg mx-auto mb-10">
+            Live prototype — onboarding, chat, wallet, card, the lot.
+            Money moves are simulated. Real didii vibes.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             <Link
               href="#waitlist"
-              className="rounded-pill px-8 py-3.5 bg-white text-indigo text-sm font-bold hover:bg-cream active:scale-95 transition-all duration-150 shadow-lg"
+              className="rounded-pill px-8 py-3.5 bg-yellow-500 text-yellow-dark text-sm font-bold hover:bg-yellow-400 active:scale-95 transition-all duration-150 shadow-glow-yellow"
             >
-              Open the full app →
+              Join the party →
             </Link>
             <Link
-              href="#waitlist"
-              className="rounded-pill px-6 py-3.5 border border-white/25 text-white text-sm font-medium hover:bg-white/10 transition-colors"
+              href="#how-it-works"
+              className="rounded-pill px-6 py-3.5 border border-yellow-500/30 text-yellow-500 text-sm font-medium hover:bg-yellow-500/8 transition-colors"
             >
-              Get early access
+              See how it works
             </Link>
           </div>
         </StaggerReveal>
 
-        {/* Widget mockup pill */}
+        {/* Widget mockup */}
         <StaggerReveal delay={0.2} className="mt-16">
-          <div className="inline-flex items-center gap-3 glass rounded-2xl px-6 py-4 mx-auto">
-            <div className="w-8 h-8 rounded-xl bg-indigo border border-white/20 flex items-center justify-center shadow-glow-indigo">
-              <span className="font-display font-bold text-white text-sm">d</span>
+          <div className="inline-flex items-center gap-3 rounded-2xl px-6 py-4 mx-auto border border-yellow-500/20 bg-yellow-500/5">
+            <div className="w-8 h-8 rounded-xl bg-yellow-500 border border-yellow-500/50 flex items-center justify-center shadow-glow-yellow-sm">
+              <span className="font-display font-bold text-yellow-dark text-sm">d</span>
             </div>
             <div className="text-left">
-              <p className="text-white text-sm font-semibold">didii browser widget</p>
-              <p className="text-white/50 text-xs">Summon on any website · Chrome &amp; Firefox</p>
+              <p className="text-cream text-sm font-semibold">didii browser widget</p>
+              <p className="text-cream/40 text-xs">Summon on any website · Chrome &amp; Firefox</p>
             </div>
             <div className="ml-4 hidden sm:flex gap-2">
               {['Send', 'Pay', 'Cash out'].map((action) => (
                 <span key={action}
-                      className="text-xs px-2.5 py-1 rounded-pill bg-white/10 text-white/70 border border-white/10">
+                      className="text-xs px-2.5 py-1 rounded-pill bg-yellow-500/10 text-yellow-500/70 border border-yellow-500/15">
                   {action}
                 </span>
               ))}
