@@ -46,7 +46,9 @@ export function NoSwitching() {
             className="font-display font-black text-cream leading-tight tracking-tight mb-4"
             style={{ fontSize: 'clamp(1.7rem, 3vw, 2.8rem)' }}
           >
-            <FunHeadline as="span">Nahh. Not another switch...</FunHeadline>
+            <FunHeadline as="span">Nahh.</FunHeadline>
+            <br />
+            <FunHeadline as="span">Not another switch...</FunHeadline>
           </h2>
           <p className="text-muted text-base max-w-md mx-auto">
             Keep your Opay, keep your GTBank. Keep everything.
@@ -79,7 +81,7 @@ export function NoSwitching() {
 
             {/* Animated dots flowing from bank → center */}
             {ALL_BANKS.map((bank, i) => (
-              <circle key={`dot-${bank.name}`} r="0.9" fill="#FFB800">
+              <circle key={`dot-${bank.name}`} r="0.45" fill="rgba(255,184,0,0.55)">
                 <animateMotion
                   dur={`${2.0 + (i % 4) * 0.35}s`}
                   repeatCount="indefinite"
@@ -88,7 +90,7 @@ export function NoSwitching() {
                 />
                 <animate
                   attributeName="opacity"
-                  values="0;0.85;0.85;0"
+                  values="0;0.7;0.7;0"
                   keyTimes="0;0.08;0.88;1"
                   dur={`${2.0 + (i % 4) * 0.35}s`}
                   repeatCount="indefinite"

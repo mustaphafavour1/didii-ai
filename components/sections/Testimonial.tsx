@@ -42,7 +42,7 @@ export function Testimonial() {
         <div className="text-center mb-4 select-none pointer-events-none" aria-hidden="true">
           <p
             className="font-display font-black text-cream/8 leading-none tracking-tighter"
-            style={{ fontSize: 'clamp(5rem, 15vw, 14rem)' }}
+            style={{ fontSize: 'clamp(3rem, 9vw, 8.4rem)' }}
           >
             &ldquo;E don set.&rdquo;
           </p>

@@ -27,7 +27,7 @@ export function Hero() {
             <StaggerReveal delay={0.08}>
               <h1
                 className="font-display font-black text-cream leading-[1.0] tracking-tight"
-                style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+                style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.8rem)' }}
               >
                 <FunHeadline as="span">Smarter Banking</FunHeadline>
                 <br />

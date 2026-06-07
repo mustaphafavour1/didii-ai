@@ -29,6 +29,20 @@
 }
 @font-face {
   font-family: 'Panchang';
+  src: url('/fonts/PanchangExtrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panchang';
+  src: url('/fonts/PanchangExtrabold.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panchang';
   src: url('/fonts/PanchangBold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
@@ -80,7 +94,7 @@ h1, h2, h3 {
   color: #E2613C;
   font-style: italic;
   font-variation-settings: 'wght' 800;
-  display: inline-block;
+  display: inline;
 }
 
 /* ─── Typing caret ─────────────────────────────────────────── */

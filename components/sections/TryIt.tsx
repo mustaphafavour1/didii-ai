@@ -25,7 +25,7 @@ export function TryIt() {
           </p>
           <h2
             className="font-display font-black text-cream leading-tight tracking-tight mx-auto mb-4"
-            style={{ fontSize: 'clamp(1.8rem, 4vw, 3.25rem)' }}
+            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
           >
             <FunHeadline as="span">Ready to have a taste??</FunHeadline>
           </h2>

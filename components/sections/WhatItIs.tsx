@@ -14,7 +14,7 @@ export function WhatItIs() {
           </p>
           <h2
             className="font-display font-black text-ink leading-tight tracking-tight mx-auto max-w-xl"
-            style={{ fontSize: 'clamp(1.7rem, 3vw, 2.6rem)' }}
+            style={{ fontSize: 'clamp(1.4rem, 2.2vw, 2rem)' }}
           >
             <FunHeadline as="span">An App and Right inside</FunHeadline>
             <br />

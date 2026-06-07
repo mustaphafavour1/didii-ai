@@ -60,7 +60,7 @@ export function FinalCTA() {
       />
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent pointer-events-none" />
 
-      <div className="relative max-w-2xl mx-auto px-5 sm:px-8 text-center">
+      <div className="relative max-w-4xl mx-auto px-5 sm:px-8 text-center">
 
         <StaggerReveal>
           <p className="text-yellow-500 text-xs font-semibold tracking-[0.15em] uppercase mb-6">
@@ -68,7 +68,7 @@ export function FinalCTA() {
           </p>
           <h2
             className="font-display font-black text-cream leading-[1.05] tracking-tight mb-4"
-            style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)' }}
+            style={{ fontSize: 'clamp(1.9rem, 3.8vw, 3.2rem)' }}
           >
             <FunHeadline as="span">Smarter Banking</FunHeadline>
             <br />
