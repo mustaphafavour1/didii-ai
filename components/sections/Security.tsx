@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FunHeadline } from '@/components/FunHeadline'
 import { StaggerReveal } from '@/components/StaggerReveal'
 
@@ -56,32 +57,17 @@ export function Security() {
           {/* Left: Shield + 2x2 feature grid on top */}
           <StaggerReveal>
             <div className="relative">
-              {/* Big shield SVG — centered, tall */}
+              {/* Security shield image */}
               <div className="flex justify-center mb-10">
                 <div className="relative">
-                  <svg
-                    width="180"
-                    height="210"
-                    viewBox="0 0 120 140"
-                    fill="none"
-                    aria-hidden="true"
-                    className="mx-auto"
-                  >
-                    <path
-                      d="M60 8L12 30v40c0 30 22.5 56 48 64 25.5-8 48-34 48-64V30L60 8z"
-                      fill="rgba(255,184,0,0.08)"
-                      stroke="#FFB800"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d="M44 70l12 12 24-24"
-                      stroke="#FFB800"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  {/* Glow under shield */}
+                  <Image
+                    src="/app/security-shield.png"
+                    alt="Security shield"
+                    width={220}
+                    height={260}
+                    className="mx-auto object-contain"
+                  />
+                  {/* Glow under image */}
                   <div
                     className="absolute bottom-0 inset-x-0 h-16 blur-2xl pointer-events-none"
                     style={{ background: 'radial-gradient(ellipse, rgba(255,184,0,0.25), transparent 70%)' }}
@@ -117,7 +103,7 @@ export function Security() {
             </p>
             <h2
               className="font-display font-black text-ink leading-tight tracking-tight mb-6"
-              style={{ fontSize: 'clamp(1.9rem, 4vw, 3.25rem)' }}
+              style={{ fontSize: 'clamp(1.7rem, 3vw, 2.8rem)' }}
             >
               <FunHeadline as="span">Built like a vault.</FunHeadline>
               <br />

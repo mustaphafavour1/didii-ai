@@ -1,5 +1,6 @@
 'use client'
 
+import type { CSSProperties } from 'react'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -7,68 +8,32 @@ import { FunHeadline } from '@/components/FunHeadline'
 import { StaggerReveal } from '@/components/StaggerReveal'
 
 const SCREENS = [
-  { src: '/app/screen-1.svg', caption: 'Home chat',    sub: 'Everything in one conversation' },
-  { src: '/app/screen-2.svg', caption: 'Fund wallet',  sub: 'Bank transfer or card' },
-  { src: '/app/screen-3.svg', caption: 'Split & save', sub: 'Money with your circle' },
+  { src: '/app/screen-1.svg', caption: 'Home chat',      sub: 'Everything in one conversation' },
+  { src: '/app/screen-2.svg', caption: 'Fund wallet',    sub: 'Bank transfer or card' },
+  { src: '/app/screen-3.svg', caption: 'Split & save',   sub: 'Money with your circle' },
   { src: '/app/screen-4.svg', caption: 'Pay in 3 steps', sub: 'Talk → confirm → done' },
-  { src: '/app/screen-5.svg', caption: 'Spending view', sub: 'Where your money goes' },
+  { src: '/app/screen-5.svg', caption: 'Spending view',  sub: 'Where your money goes' },
 ]
 
-function PhoneFrame({ src, caption, scale, opacity, zIndex, gradient }: {
-  src: string
-  caption: string
-  scale: number
-  opacity: number
-  zIndex: number
-  gradient?: string
-}) {
-  return (
-    <motion.div
-      layout
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale, opacity }}
-      exit={{ scale: 0.8, opacity: 0 }}
-      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-      className="relative flex-shrink-0"
-      style={{ zIndex }}
-    >
-      <div
-        className="relative rounded-[28px] border border-white/10 overflow-hidden"
-        style={{
-          width: 150,
-          aspectRatio: '9/19.5',
-          boxShadow: '0 0 0 1px rgba(255,255,255,0.04), 0 20px 60px rgba(0,0,0,0.6), 0 0 60px rgba(255,184,0,0.08)',
-        }}
-      >
-        <Image
-          src={src}
-          alt={caption}
-          fill
-          className="object-cover"
-          sizes="150px"
-        />
-        {/* Edge gradient overlay */}
-        {gradient && (
-          <div className="absolute inset-0 pointer-events-none" style={{ background: gradient }} />
-        )}
-      </div>
-    </motion.div>
-  )
-}
+// Star-pattern positions for 5 list items
+// Each placed at a tip of a 5-pointed star centered in the container
+const STAR_POSITIONS: CSSProperties[] = [
+  { top: '2%',  left: '50%',  transform: 'translate(-50%, 0)' },          // 12 o'clock
+  { top: '36%', left: '96%',  transform: 'translate(-100%, -50%)' },       // 2 o'clock
+  { top: '88%', left: '80%',  transform: 'translate(-50%, -100%)' },       // 4 o'clock
+  { top: '88%', left: '20%',  transform: 'translate(-50%, -100%)' },       // 8 o'clock
+  { top: '36%', left: '4%',   transform: 'translate(0, -50%)' },           // 10 o'clock
+]
 
 export function AppScreens() {
   const [center, setCenter] = useState(0)
 
-  // Auto-advance every 3s
   useEffect(() => {
     const id = setInterval(() => {
       setCenter((prev) => (prev + 1) % SCREENS.length)
     }, 3000)
     return () => clearInterval(id)
   }, [])
-
-  const prev = (center - 1 + SCREENS.length) % SCREENS.length
-  const next = (center + 1) % SCREENS.length
 
   return (
     <section id="app-screens" className="bg-ink py-24 sm:py-32 overflow-hidden">
@@ -81,118 +46,116 @@ export function AppScreens() {
           </p>
           <h2
             className="font-display font-black text-cream leading-tight tracking-tight mb-3"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
+            style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)' }}
           >
             <FunHeadline as="span">Have a taste of Didii</FunHeadline>
           </h2>
           <p className="text-muted text-sm italic">it&apos;s so sweet, we couldn&apos;t keep it to ourselves</p>
         </StaggerReveal>
 
-        {/* Two-col: LEFT = carousel, RIGHT = list */}
+        {/* Two-col: phone carousel (left) + star list (right) */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Carousel */}
+          {/* Left: phone carousel with Y-rotation effect */}
           <StaggerReveal delay={0.1}>
-            <div className="relative flex items-center justify-center" style={{ height: 340 }}>
-              {/* Glow behind center phone */}
-              <div
-                className="absolute pointer-events-none blur-3xl"
-                style={{
-                  width: 200,
-                  height: 200,
-                  background: 'radial-gradient(ellipse, rgba(255,184,0,0.25) 0%, transparent 70%)',
-                }}
-              />
+            <div className="flex flex-col items-center gap-6">
 
-              {/* Left phone — scaled down, faded, gradient right edge */}
-              <div
-                className="absolute"
-                style={{ left: '50%', transform: 'translateX(-190px) translateY(10px)' }}
-              >
-                <AnimatePresence mode="popLayout">
-                  <PhoneFrame
-                    key={prev}
-                    src={SCREENS[prev].src}
-                    caption={SCREENS[prev].caption}
-                    scale={0.65}
-                    opacity={0.4}
-                    zIndex={1}
-                    gradient="linear-gradient(to right, #0F1108 0%, transparent 60%)"
-                  />
-                </AnimatePresence>
-              </div>
+              {/* Glow */}
+              <div className="relative flex items-center justify-center">
+                <div
+                  className="absolute pointer-events-none blur-3xl"
+                  style={{
+                    width: 220,
+                    height: 220,
+                    background: 'radial-gradient(ellipse, rgba(255,184,0,0.22) 0%, transparent 70%)',
+                  }}
+                />
 
-              {/* Center phone — full size, full opacity */}
-              <div className="relative" style={{ zIndex: 3 }}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={center}
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.9, opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <div
-                      className="relative rounded-[28px] border border-white/12 overflow-hidden"
-                      style={{
-                        width: 160,
-                        aspectRatio: '9/19.5',
-                        boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.7), 0 0 80px rgba(255,184,0,0.15)',
-                      }}
+                {/* Phone with Y-rotation entrance */}
+                <div style={{ perspective: '900px' }}>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={center}
+                      initial={{ rotateY: 28, x: 70, opacity: 0, scale: 0.88 }}
+                      animate={{ rotateY: 0, x: 0, opacity: 1, scale: 1 }}
+                      exit={{ rotateY: -20, x: -50, opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.48, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      style={{ transformOrigin: 'center center' }}
                     >
-                      <Image
-                        src={SCREENS[center].src}
-                        alt={SCREENS[center].caption}
-                        fill
-                        className="object-cover"
-                        sizes="160px"
-                        priority
-                      />
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                      <div
+                        className="relative rounded-[30px] border border-white/12 overflow-hidden"
+                        style={{
+                          width: 'clamp(150px, 18vw, 200px)',
+                          aspectRatio: '9/19.5',
+                          boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.7), 0 0 80px rgba(255,184,0,0.18)',
+                        }}
+                      >
+                        <Image
+                          src={SCREENS[center].src}
+                          alt={SCREENS[center].caption}
+                          fill
+                          className="object-cover"
+                          sizes="200px"
+                          priority
+                        />
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </div>
 
-              {/* Right phone — scaled down, faded, gradient left edge */}
-              <div
-                className="absolute"
-                style={{ left: '50%', transform: 'translateX(60px) translateY(10px)' }}
-              >
-                <AnimatePresence mode="popLayout">
-                  <PhoneFrame
-                    key={next}
-                    src={SCREENS[next].src}
-                    caption={SCREENS[next].caption}
-                    scale={0.65}
-                    opacity={0.4}
-                    zIndex={1}
-                    gradient="linear-gradient(to left, #0F1108 0%, transparent 60%)"
-                  />
+              {/* Caption below phone */}
+              <div className="text-center">
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`cap-${center}`}
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.22 }}
+                    className="text-cream text-sm font-semibold"
+                  >
+                    {SCREENS[center].caption}
+                  </motion.p>
                 </AnimatePresence>
+                <p className="text-muted text-xs mt-1">{SCREENS[center].sub}</p>
+              </div>
+
+              {/* Progress dots */}
+              <div className="flex gap-1.5">
+                {SCREENS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCenter(i)}
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      i === center ? 'w-6 bg-yellow-500' : 'w-2 bg-white/20'
+                    }`}
+                    aria-label={`Go to screen ${i + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </StaggerReveal>
 
-          {/* Right: screen list */}
+          {/* Right: star-scattered screen labels */}
           <StaggerReveal delay={0.2} direction="right">
-            <div className="flex flex-col gap-1">
-              <h3 className="text-cream font-display font-bold text-xl mb-2">Have a taste of Didii</h3>
-              <p className="text-muted text-sm mb-6">it&apos;s so sweet, we couldn&apos;t keep it to ourselves</p>
-
+            <div className="relative h-[300px] sm:h-[340px] overflow-hidden">
               {SCREENS.map((screen, i) => (
                 <button
                   key={screen.src}
                   onClick={() => setCenter(i)}
-                  className={`w-full text-left flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
-                    center === i ? 'bg-white/5' : 'hover:bg-white/3'
+                  className={`absolute flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-250 ${
+                    center === i
+                      ? 'bg-yellow-500/12 ring-1 ring-yellow-500/30'
+                      : 'hover:bg-white/4'
                   }`}
+                  style={STAR_POSITIONS[i]}
                 >
-                  {/* Dot */}
                   <div className={`w-2 h-2 rounded-full flex-shrink-0 transition-colors duration-200 ${
-                    center === i ? 'bg-yellow-500' : 'bg-white/15'
+                    center === i ? 'bg-yellow-500' : 'bg-white/20'
                   }`} />
-                  <div>
-                    <p className={`text-sm font-semibold leading-tight transition-colors duration-200 ${
+                  <div className="text-left">
+                    <p className={`text-sm font-semibold leading-tight whitespace-nowrap transition-colors duration-200 ${
                       center === i ? 'text-cream' : 'text-muted'
                     }`}>
                       {screen.caption}
@@ -201,7 +164,7 @@ export function AppScreens() {
                       <motion.p
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
-                        className="text-xs text-muted/60 mt-0.5"
+                        className="text-xs text-muted/60 mt-0.5 whitespace-nowrap"
                       >
                         {screen.sub}
                       </motion.p>
@@ -209,21 +172,24 @@ export function AppScreens() {
                   </div>
                 </button>
               ))}
+            </div>
 
-              {/* Waitlist social proof */}
-              <div className="mt-6 pt-5 border-t border-white/8 flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {['bg-yellow-500', 'bg-terracotta', 'bg-lilac'].map((bg, i) => (
-                    <div
-                      key={i}
-                      className={`w-7 h-7 rounded-full ${bg} border-2 border-ink flex items-center justify-center text-[8px] font-bold text-yellow-dark`}
-                    >
-                      {['T', 'A', 'K'][i]}
-                    </div>
-                  ))}
-                </div>
-                <p className="text-muted text-xs">2,859 Nigerians waiting · <span className="text-yellow-500 font-medium">Join them</span></p>
+            {/* Social proof below star */}
+            <div className="mt-6 pt-5 border-t border-white/5 flex items-center gap-3">
+              <div className="flex -space-x-2">
+                {['bg-yellow-500', 'bg-terracotta', 'bg-muted'].map((bg, i) => (
+                  <div
+                    key={i}
+                    className={`w-7 h-7 rounded-full ${bg} border-2 border-ink flex items-center justify-center text-[8px] font-bold text-ink`}
+                  >
+                    {['T', 'A', 'K'][i]}
+                  </div>
+                ))}
               </div>
+              <p className="text-muted text-xs">
+                2,859 Nigerians waiting ·{' '}
+                <span className="text-yellow-500 font-medium">Join them</span>
+              </p>
             </div>
           </StaggerReveal>
         </div>

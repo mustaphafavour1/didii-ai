@@ -26,7 +26,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-ink/85 backdrop-blur-xl border-b border-white/8 shadow-lg'
+            ? 'bg-ink/85 backdrop-blur-xl border-b border-white/5 shadow-lg'
             : 'bg-transparent'
         }`}
       >
@@ -85,7 +85,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-16 inset-x-0 z-40 bg-ink/95 backdrop-blur-xl border-b border-white/8 md:hidden"
+            className="fixed top-16 inset-x-0 z-40 bg-ink/95 backdrop-blur-xl border-b border-white/5 md:hidden"
           >
             <nav className="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
               {NAV_LINKS.map((link) => (

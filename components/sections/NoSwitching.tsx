@@ -4,42 +4,32 @@ import { motion } from 'framer-motion'
 import { FunHeadline } from '@/components/FunHeadline'
 import { StaggerReveal } from '@/components/StaggerReveal'
 
-const LEFT_BANKS = [
-  { name: 'Opay',       bg: '#00C853', text: '#fff' },
-  { name: 'GTBank',     bg: '#E4003C', text: '#fff' },
-  { name: 'Kuda',       bg: '#400090', text: '#fff' },
-  { name: 'First Bank', bg: '#003366', text: '#fff' },
-  { name: 'Access',     bg: '#002244', text: '#fff' },
-  { name: 'UBA',        bg: '#B11116', text: '#fff' },
+// x, y as percentage of container (used for both CSS absolute positioning + SVG viewBox coords)
+const ALL_BANKS = [
+  // Left side
+  { name: 'OPay',       bg: '#00C853', text: '#fff', x: 7,  y: 10, delay: 0.10 },
+  { name: 'GTBank',     bg: '#E4003C', text: '#fff', x: 20, y: 3,  delay: 0.20 },
+  { name: 'Kuda',       bg: '#400090', text: '#fff', x: 5,  y: 38, delay: 0.15 },
+  { name: 'First Bank', bg: '#003366', text: '#fff', x: 18, y: 56, delay: 0.25 },
+  { name: 'Access',     bg: '#002244', text: '#fff', x: 8,  y: 74, delay: 0.18 },
+  { name: 'UBA',        bg: '#B11116', text: '#fff', x: 22, y: 88, delay: 0.22 },
+  // Right side
+  { name: 'Zenith',     bg: '#D01C1F', text: '#fff', x: 93, y: 10, delay: 0.12 },
+  { name: 'Palmpay',    bg: '#06BA8C', text: '#fff', x: 80, y: 3,  delay: 0.21 },
+  { name: 'Fidelity',   bg: '#00563B', text: '#fff', x: 95, y: 38, delay: 0.16 },
+  { name: 'Wema',       bg: '#672E8E', text: '#fff', x: 82, y: 56, delay: 0.26 },
+  { name: 'Sterling',   bg: '#ED1C24', text: '#fff', x: 92, y: 74, delay: 0.19 },
+  { name: 'Polaris',    bg: '#E31E24', text: '#fff', x: 78, y: 88, delay: 0.23 },
 ]
 
-const RIGHT_BANKS = [
-  { name: 'Zenith',   bg: '#D01C1F', text: '#fff' },
-  { name: 'Palmpay',  bg: '#06BA8C', text: '#fff' },
-  { name: 'Fidelity', bg: '#00563B', text: '#fff' },
-  { name: 'Wema',     bg: '#672E8E', text: '#fff' },
-  { name: 'Sterling', bg: '#ED1C24', text: '#fff' },
-  { name: 'Polaris',  bg: '#E31E24', text: '#fff' },
-]
-
-function BankChip({ name, bg, text, delay }: { name: string; bg: string; text: string; delay: number }) {
-  return (
-    <motion.div
-      className="flex items-center gap-1.5 px-3 py-1.5 rounded-pill text-xs font-bold"
-      style={{ backgroundColor: bg, color: text }}
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.35, delay }}
-    >
-      <span
-        className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black border-2 border-white/20"
-        style={{ backgroundColor: text === '#fff' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.15)' }}
-      >
-        {name[0]}
-      </span>
-      {name}
-    </motion.div>
-  )
+// Build SVG cubic bezier path from bank to center (50, 50)
+function buildPath(bank: { x: number; y: number }) {
+  const cx = 50
+  const cy = 50
+  const midX = bank.x < 50
+    ? bank.x + (cx - bank.x) * 0.55
+    : bank.x - (bank.x - cx) * 0.55
+  return `M ${bank.x},${bank.y} C ${midX},${bank.y} ${midX},${cy} ${cx},${cy}`
 }
 
 export function NoSwitching() {
@@ -47,14 +37,14 @@ export function NoSwitching() {
     <section className="bg-ink py-24 sm:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
-        {/* Title — centered */}
+        {/* Title */}
         <StaggerReveal className="mb-14 text-center">
           <p className="text-yellow-500 text-xs font-semibold tracking-[0.15em] uppercase mb-4">
             NO SWITCHING REQUIRED
           </p>
           <h2
             className="font-display font-black text-cream leading-tight tracking-tight mb-4"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+            style={{ fontSize: 'clamp(1.7rem, 3vw, 2.8rem)' }}
           >
             <FunHeadline as="span">Nahh. Not another switch...</FunHeadline>
           </h2>
@@ -66,72 +56,103 @@ export function NoSwitching() {
           </p>
         </StaggerReveal>
 
-        {/* 3-column layout: left banks | didii center | right banks */}
-        <div className="grid grid-cols-3 gap-4 items-center max-w-3xl mx-auto">
+        {/* Scattered chip layout with animated flow lines */}
+        <div className="relative w-full overflow-hidden" style={{ height: 460 }}>
 
-          {/* Left banks */}
-          <div className="flex flex-col gap-2.5 items-end">
-            {LEFT_BANKS.map((bank, i) => (
-              <div key={bank.name} className="flex items-center gap-2 w-full justify-end">
-                <BankChip {...bank} delay={0.1 + i * 0.06} />
-                {/* Animated connector line */}
-                <motion.div
-                  className="h-px flex-1 max-w-[32px]"
-                  style={{ background: 'linear-gradient(to right, rgba(255,184,0,0.08), rgba(255,184,0,0.25))' }}
-                  initial={{ scaleX: 0, originX: 1 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.06 }}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Center — didii chip */}
-          <div className="flex justify-center items-center">
-            <motion.div
-              className="relative flex flex-col items-center gap-2"
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 200 }}
-            >
-              {/* Glow ring */}
-              <div
-                className="absolute inset-0 rounded-full blur-xl pointer-events-none"
-                style={{ background: 'rgba(255,184,0,0.25)', transform: 'scale(1.5)' }}
+          {/* SVG layer — faint connector lines + animated dots */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            {/* Connector lines */}
+            {ALL_BANKS.map((bank) => (
+              <path
+                key={`line-${bank.name}`}
+                d={buildPath(bank)}
+                stroke="rgba(255,184,0,0.1)"
+                strokeWidth="0.3"
+                fill="none"
               />
-              <div
-                className="relative w-16 h-16 rounded-full bg-yellow-500 border-4 flex items-center justify-center"
-                style={{
-                  borderColor: '#0F1108',
-                  boxShadow: '0 0 40px rgba(255,184,0,0.5), 0 0 0 8px rgba(255,184,0,0.08)',
-                }}
-              >
-                <span className="font-display font-black text-yellow-dark text-2xl">d</span>
-              </div>
-              <span className="text-yellow-500 text-xs font-bold font-display">didii</span>
-            </motion.div>
-          </div>
-
-          {/* Right banks */}
-          <div className="flex flex-col gap-2.5 items-start">
-            {RIGHT_BANKS.map((bank, i) => (
-              <div key={bank.name} className="flex items-center gap-2 w-full">
-                {/* Animated connector line */}
-                <motion.div
-                  className="h-px flex-1 max-w-[32px]"
-                  style={{ background: 'linear-gradient(to left, rgba(255,184,0,0.08), rgba(255,184,0,0.25))' }}
-                  initial={{ scaleX: 0, originX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.06 }}
-                />
-                <BankChip {...bank} delay={0.1 + i * 0.06} />
-              </div>
             ))}
-          </div>
+
+            {/* Animated dots flowing from bank → center */}
+            {ALL_BANKS.map((bank, i) => (
+              <circle key={`dot-${bank.name}`} r="0.9" fill="#FFB800">
+                <animateMotion
+                  dur={`${2.0 + (i % 4) * 0.35}s`}
+                  repeatCount="indefinite"
+                  begin={`${i * 0.3}s`}
+                  path={buildPath(bank)}
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0;0.85;0.85;0"
+                  keyTimes="0;0.08;0.88;1"
+                  dur={`${2.0 + (i % 4) * 0.35}s`}
+                  repeatCount="indefinite"
+                  begin={`${i * 0.3}s`}
+                />
+              </circle>
+            ))}
+          </svg>
+
+          {/* Bank chips — scattered using absolute % positions */}
+          {ALL_BANKS.map((bank) => (
+            <motion.div
+              key={bank.name}
+              className="absolute flex items-center gap-1 px-2.5 py-1 rounded-pill text-[10px] font-bold whitespace-nowrap"
+              style={{
+                left: `${bank.x}%`,
+                top: `${bank.y}%`,
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: bank.bg,
+                color: bank.text,
+              }}
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.35, delay: bank.delay }}
+            >
+              <span
+                className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[7px] font-black border border-white/25"
+                style={{ backgroundColor: 'rgba(255,255,255,0.22)' }}
+              >
+                {bank.name[0]}
+              </span>
+              {bank.name}
+            </motion.div>
+          ))}
+
+          {/* Center — didii pill chip (larger) */}
+          <motion.div
+            className="absolute"
+            style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.55, delay: 0.45, type: 'spring', stiffness: 180 }}
+          >
+            {/* Glow halo */}
+            <div
+              className="absolute inset-0 blur-2xl pointer-events-none rounded-full"
+              style={{ background: 'rgba(255,184,0,0.4)', transform: 'scale(2.5)' }}
+            />
+            <div
+              className="relative flex items-center gap-2 px-6 py-3 rounded-pill bg-yellow-500"
+              style={{
+                outline: '3px solid #0F1108',
+                outlineOffset: '0px',
+                boxShadow: '0 0 48px rgba(255,184,0,0.65), 0 0 0 6px rgba(255,184,0,0.12)',
+              }}
+            >
+              <span className="font-display font-black text-yellow-dark text-2xl leading-none">d</span>
+              <span className="font-display font-bold text-yellow-dark text-base">didii</span>
+            </div>
+          </motion.div>
         </div>
 
         {/* Bottom chips */}
-        <StaggerReveal delay={0.5} className="mt-14 flex flex-wrap gap-2 justify-center">
+        <StaggerReveal delay={0.5} className="mt-8 flex flex-wrap gap-2 justify-center">
           {['All Nigerian banks', 'All fintechs', 'All wallets'].map((item) => (
             <span
               key={item}

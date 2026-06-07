@@ -21,7 +21,7 @@ function ChipStrip() {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % CHIPS.length)
-    }, 700)
+    }, 2000)
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
@@ -33,7 +33,7 @@ function ChipStrip() {
         <span
           key={chip}
           role="listitem"
-          className={`chip-animate text-xs px-4 py-1.5 rounded-pill border font-medium ${
+          className={`chip-animate text-[10px] px-3 py-1 rounded-pill border font-medium ${
             i === activeIndex
               ? 'chip-active border-yellow-500 text-yellow-dark'
               : 'border-white/12 text-muted'

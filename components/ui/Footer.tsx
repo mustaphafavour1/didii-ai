@@ -22,7 +22,7 @@ const LEGAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink border-t border-white/8">
+    <footer className="bg-ink border-t border-white/5">
 
       {/* Main footer body */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14 sm:py-16">
@@ -56,7 +56,7 @@ export function Footer() {
             ))}
           </div>
 
-          <div className="w-px h-0 border-t border-white/8 w-full max-w-sm" />
+          <div className="w-px h-0 border-t border-white/5 w-full max-w-sm" />
 
           {/* Company links */}
           <div className="flex flex-wrap items-center justify-center gap-1">
@@ -71,7 +71,7 @@ export function Footer() {
             ))}
           </div>
 
-          <div className="w-px h-0 border-t border-white/8 w-full max-w-sm" />
+          <div className="w-px h-0 border-t border-white/5 w-full max-w-sm" />
 
           {/* Legal links */}
           <div className="flex flex-wrap items-center justify-center gap-1">
@@ -88,7 +88,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/8 flex flex-col items-center gap-4 text-center">
+        <div className="mt-12 pt-6 border-t border-white/5 flex flex-col items-center gap-4 text-center">
           <div className="flex gap-5">
             {['Twitter / X', 'Instagram', 'LinkedIn'].map((name) => (
               <Link key={name} href="#" className="text-muted/50 text-xs hover:text-muted transition-colors">

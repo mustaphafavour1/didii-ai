@@ -1,5 +1,39 @@
-/* Panchang variable font from Fontshare */
-@import url('https://api.fontshare.com/v2/css?f[]=panchang@200,300,400,500,600,700,800,900&display=swap');
+/* ─── Panchang local fonts ──────────────────────────────────── */
+@font-face {
+  font-family: 'Panchang';
+  src: url('/fonts/PanchangLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panchang';
+  src: url('/fonts/PanchangRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panchang';
+  src: url('/fonts/PanchangMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panchang';
+  src: url('/fonts/PanchangSemibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panchang';
+  src: url('/fonts/PanchangBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -31,6 +65,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* ─── Headline word-break protection ────────────────────────── */
+/* Prevents mid-word breaking on display font headlines */
+h1, h2, h3 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 /* ─── Fun letter treatment ─────────────────────────────────── */
@@ -122,13 +164,22 @@ body {
   background: linear-gradient(90deg, var(--yellow) 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: 100% 0;
-  transition: color 0.2s;
+  transition: color 0.3s;
 }
 .chip-animate.chip-active {
   background-position: 0% 0;
   color: var(--yellow-dark);
   border-color: var(--yellow);
-  transition: background-position 0.55s ease, color 0.2s;
+  /* 1.8s fill — gentle and visible */
+  transition: background-position 1.8s ease, color 0.3s;
+}
+
+/* ─── Flow-dot animation (NoSwitching) ──────────────────────── */
+@keyframes flow-dot {
+  0%   { offset-distance: 0%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
 }
 
 /* ─── Float animation ───────────────────────────────────────── */
@@ -164,9 +215,9 @@ body {
 }
 
 /* ─── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(142,144,166,0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(142,144,166,0.3); border-radius: 2px; }
 
 /* ─── Scroll snap ───────────────────────────────────────────── */
 .scroll-snap-x { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
