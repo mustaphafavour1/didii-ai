@@ -8,11 +8,11 @@ import { FunHeadline } from '@/components/FunHeadline'
 import { StaggerReveal } from '@/components/StaggerReveal'
 
 const SCREENS = [
-  { src: '/app/screen-1.svg', caption: 'Home chat',      sub: 'Everything in one conversation' },
-  { src: '/app/screen-2.svg', caption: 'Fund wallet',    sub: 'Bank transfer or card' },
-  { src: '/app/screen-3.svg', caption: 'Split & save',   sub: 'Money with your circle' },
-  { src: '/app/screen-4.svg', caption: 'Pay in 3 steps', sub: 'Talk → confirm → done' },
-  { src: '/app/screen-5.svg', caption: 'Spending view',  sub: 'Where your money goes' },
+  { src: '/app/screen-1.png', caption: 'Home chat',      sub: 'Everything in one conversation' },
+  { src: '/app/screen-2.png', caption: 'Fund wallet',    sub: 'Bank transfer or card' },
+  { src: '/app/screen-3.png', caption: 'Split & save',   sub: 'Money with your circle' },
+  { src: '/app/screen-4.png', caption: 'Pay in 3 steps', sub: 'Talk → confirm → done' },
+  { src: '/app/screen-5.png', caption: 'Spending view',  sub: 'Where your money goes' },
 ]
 
 // Star-pattern positions for 5 list items

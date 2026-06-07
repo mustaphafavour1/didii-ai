@@ -102,7 +102,7 @@ export function Hero() {
                 }}
               >
                 <Image
-                  src="/app/screen-1.svg"
+                  src="/app/home-screen.png"
                   alt="didii app home screen"
                   fill
                   className="object-cover"

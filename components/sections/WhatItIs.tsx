@@ -52,7 +52,7 @@ export function WhatItIs() {
                     }}
                   >
                     <Image
-                      src="/app/whatitis-app.png"
+                      src="/app/home-screen.png"
                       alt="didii app screen"
                       fill
                       className="object-cover"
