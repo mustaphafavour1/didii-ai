@@ -6,20 +6,20 @@ import { StaggerReveal } from '@/components/StaggerReveal'
 
 // x, y as percentage of container (used for both CSS absolute positioning + SVG viewBox coords)
 const ALL_BANKS = [
-  // Left side
-  { name: 'OPay',       bg: '#00C853', text: '#fff', x: 7,  y: 10, delay: 0.10 },
-  { name: 'GTBank',     bg: '#E4003C', text: '#fff', x: 20, y: 3,  delay: 0.20 },
-  { name: 'Kuda',       bg: '#400090', text: '#fff', x: 5,  y: 38, delay: 0.15 },
-  { name: 'First Bank', bg: '#003366', text: '#fff', x: 18, y: 56, delay: 0.25 },
-  { name: 'Access',     bg: '#002244', text: '#fff', x: 8,  y: 74, delay: 0.18 },
-  { name: 'UBA',        bg: '#B11116', text: '#fff', x: 22, y: 88, delay: 0.22 },
-  // Right side
-  { name: 'Zenith',     bg: '#D01C1F', text: '#fff', x: 93, y: 10, delay: 0.12 },
-  { name: 'Palmpay',    bg: '#06BA8C', text: '#fff', x: 80, y: 3,  delay: 0.21 },
-  { name: 'Fidelity',   bg: '#00563B', text: '#fff', x: 95, y: 38, delay: 0.16 },
-  { name: 'Wema',       bg: '#672E8E', text: '#fff', x: 82, y: 56, delay: 0.26 },
-  { name: 'Sterling',   bg: '#ED1C24', text: '#fff', x: 92, y: 74, delay: 0.19 },
-  { name: 'Polaris',    bg: '#E31E24', text: '#fff', x: 78, y: 88, delay: 0.23 },
+  // Left side — y values average to 50 so center of mass aligns with didii chip
+  { name: 'OPay',       bg: '#00C853', text: '#fff', x: 7,  y: 8,  delay: 0.10 },
+  { name: 'GTBank',     bg: '#E4003C', text: '#fff', x: 20, y: 20, delay: 0.20 },
+  { name: 'Kuda',       bg: '#400090', text: '#fff', x: 5,  y: 40, delay: 0.15 },
+  { name: 'First Bank', bg: '#003366', text: '#fff', x: 18, y: 60, delay: 0.25 },
+  { name: 'Access',     bg: '#002244', text: '#fff', x: 8,  y: 78, delay: 0.18 },
+  { name: 'UBA',        bg: '#B11116', text: '#fff', x: 22, y: 90, delay: 0.22 },
+  // Right side — mirrored y values
+  { name: 'Zenith',     bg: '#D01C1F', text: '#fff', x: 93, y: 8,  delay: 0.12 },
+  { name: 'Palmpay',    bg: '#06BA8C', text: '#fff', x: 80, y: 20, delay: 0.21 },
+  { name: 'Fidelity',   bg: '#00563B', text: '#fff', x: 95, y: 40, delay: 0.16 },
+  { name: 'Wema',       bg: '#672E8E', text: '#fff', x: 82, y: 60, delay: 0.26 },
+  { name: 'Sterling',   bg: '#ED1C24', text: '#fff', x: 92, y: 78, delay: 0.19 },
+  { name: 'Polaris',    bg: '#E31E24', text: '#fff', x: 78, y: 90, delay: 0.23 },
 ]
 
 // Build SVG cubic bezier path from bank to center (50, 50)

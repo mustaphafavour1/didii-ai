@@ -10,7 +10,7 @@ import { StaggerReveal } from '@/components/StaggerReveal'
 const SCREENS = [
   { src: '/app/screen-1.png', caption: 'Home chat',      sub: 'Everything in one conversation' },
   { src: '/app/screen-2.png', caption: 'Fund wallet',    sub: 'Bank transfer or card' },
-  { src: '/app/screen-3.png', caption: 'Split & save',   sub: 'Money with your circle' },
+  { src: '/app/screen-3.png', caption: 'Gist with Didii', sub: 'Chat with didii about anything money' },
   { src: '/app/screen-4.png', caption: 'Pay in 3 steps', sub: 'Talk → confirm → done' },
   { src: '/app/screen-5.png', caption: 'Spending view',  sub: 'Where your money goes' },
 ]
@@ -83,11 +83,10 @@ export function AppScreens() {
                       style={{ transformOrigin: 'center center' }}
                     >
                       <div
-                        className="relative rounded-[30px] border border-white/12 overflow-hidden"
+                        className="relative overflow-hidden"
                         style={{
                           width: 'clamp(150px, 18vw, 200px)',
                           aspectRatio: '9/19.5',
-                          boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.7), 0 0 80px rgba(255,184,0,0.18)',
                         }}
                       >
                         <Image

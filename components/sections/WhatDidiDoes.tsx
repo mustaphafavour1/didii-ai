@@ -9,26 +9,9 @@ const FEATURES = [
       </svg>
     ),
     title: 'Transfers',
-    description: "Send money like you're texting. To 'mama', a contact, or a number.",
+    description: "Send money just by saying it — to mama, a contact, or any account number you have.",
     tag: 'Live',
     comingSoon: false,
-    gridColumn: '2' as const,
-    gridRow: '2' as const,
-    border: 'border-b border-ink/8',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M12 13v4M10 15h4" stroke="#FFB800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    title: 'Bills',
-    description: "DSTV, electricity, airtime, data — sorted before you remember they're due.",
-    tag: 'Live',
-    comingSoon: false,
-    gridColumn: '2' as const,
-    gridRow: '3' as const,
-    border: 'border-b border-ink/8',
   },
   {
     icon: (
@@ -39,12 +22,9 @@ const FEATURES = [
       </svg>
     ),
     title: 'Snap to pay',
-    description: 'Photo of any invoice or account details → confirmed payment.',
+    description: 'Point at any invoice or account details. One photo is all it takes to pay.',
     tag: 'Live',
     comingSoon: false,
-    gridColumn: '3' as const,
-    gridRow: '1' as const,
-    border: 'border-r border-t border-ink/8',
   },
   {
     icon: (
@@ -55,12 +35,20 @@ const FEATURES = [
       </svg>
     ),
     title: 'Crypto',
-    description: 'Cash out USDT, BTC, ETH at real-time rates. No P2P stress.',
+    description: 'Cash out USDT, BTC, or ETH at real-time rates. No P2P stress, no escrow.',
     tag: 'Live',
     comingSoon: false,
-    gridColumn: '3' as const,
-    gridRow: '2' as const,
-    border: 'border-r border-ink/8',
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M12 13v4M10 15h4" stroke="#FFB800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    title: 'Bills',
+    description: "DSTV, electricity, airtime, data — all sorted before you even remember they're due.",
+    tag: 'Live',
+    comingSoon: false,
   },
   {
     icon: (
@@ -70,12 +58,9 @@ const FEATURES = [
       </svg>
     ),
     title: 'didii Safe',
-    description: 'Save goals, group ajo, earn while you wait.',
+    description: 'Save goals, group ajo, earn interest — everything in one place while money waits.',
     tag: 'Coming soon',
     comingSoon: true,
-    gridColumn: '3' as const,
-    gridRow: '3' as const,
-    border: 'border-b border-r border-ink/8',
   },
   {
     icon: (
@@ -85,12 +70,9 @@ const FEATURES = [
       </svg>
     ),
     title: 'Remittance',
-    description: 'Send abroad, receive from abroad. Japa sorted.',
+    description: 'Send or receive money across borders, without the usual paperwork and stress.',
     tag: 'Coming soon',
     comingSoon: true,
-    gridColumn: '1' as const,
-    gridRow: '3' as const,
-    border: 'border-b border-l border-ink/8',
   },
 ]
 
@@ -99,84 +81,78 @@ export function WhatDidiDoes() {
     <section id="features" className="bg-cream py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
-        {/*
-          Asymmetric 3-col grid — title takes col1 rows 1-2
-          Col1 is wider (2fr) to give the title enough room
-        */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '2fr 1fr 1fr',
-            gridTemplateRows: 'auto auto auto',
-          }}
-        >
-          {/* Title block — spans col1, rows 1-2 */}
-          <div style={{ gridColumn: '1', gridRow: '1 / 3' }} className="p-10 sm:p-12 flex flex-col justify-center">
-            <StaggerReveal>
-              <p className="text-yellow-600 text-xs font-semibold tracking-[0.15em] uppercase mb-5">
-                WHAT DIDII DOES
-              </p>
-              <h2
-                className="font-display font-black text-ink leading-tight tracking-tight"
-                style={{ fontSize: 'clamp(1.6rem, 2.2vw, 2.2rem)' }}
-              >
-                <FunHeadline as="span">Everything and Anything Money,</FunHeadline>
-                <br />
-                <FunHeadline as="span">inside one chat.</FunHeadline>
-              </h2>
-            </StaggerReveal>
-          </div>
+        {/* Header above the grid */}
+        <StaggerReveal className="mb-12 text-center">
+          <p className="text-yellow-600 text-xs font-semibold tracking-[0.15em] uppercase mb-5">
+            WHAT DIDII DOES
+          </p>
+          <h2
+            className="font-display font-black text-ink leading-tight tracking-tight mx-auto"
+            style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.8rem)' }}
+          >
+            <FunHeadline as="span">Everything and Anything Money,</FunHeadline>
+            <br />
+            <FunHeadline as="span">inside one chat.</FunHeadline>
+          </h2>
+          <p className="text-ink/45 text-sm mt-4 max-w-lg mx-auto leading-relaxed">
+            Here&apos;s just a few of the things that Didii can help you handle better with your money.
+          </p>
+        </StaggerReveal>
 
-          {/* Empty cell — col2, row1 */}
-          <div style={{ gridColumn: '2', gridRow: '1' }} />
-
-          {/* Feature cells */}
-          {FEATURES.map((feature, i) => (
-            <div
-              key={feature.title}
-              style={{ gridColumn: feature.gridColumn, gridRow: feature.gridRow }}
-            >
-              <StaggerReveal delay={i * 0.07}>
-                <div
-                  className={`p-8 sm:p-9 flex flex-col gap-5 h-full transition-all duration-200 cursor-default ${feature.border} ${
-                    feature.comingSoon ? 'opacity-60' : 'hover:shadow-[inset_0_0_0_1px_rgba(255,184,0,0.25)]'
-                  }`}
-                >
-                  {/* Icon */}
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                    feature.comingSoon
-                      ? 'bg-ink/6 border border-ink/8'
-                      : 'bg-yellow-500/10 border border-yellow-500/20'
-                  }`}>
-                    {feature.icon}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex flex-col gap-2 flex-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className={`font-display font-bold text-lg ${
-                        feature.comingSoon ? 'text-ink/45' : 'text-ink'
-                      }`}>
-                        {feature.title}
-                      </h3>
-                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-pill ${
-                        feature.comingSoon
-                          ? 'bg-muted/12 text-muted border border-muted/18'
-                          : 'bg-yellow-500/12 text-yellow-600 border border-yellow-500/22'
-                      }`}>
-                        {feature.tag}
-                      </span>
-                    </div>
-                    <p className={`text-sm leading-relaxed ${
-                      feature.comingSoon ? 'text-ink/35' : 'text-ink/55'
+        {/* Equal 3-col grid — all 6 cards same width */}
+        <div className="border border-ink/8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {FEATURES.map((feature, i) => {
+              const isLastCol = (i + 1) % 3 === 0
+              const isLastRow = i >= 3
+              return (
+                <StaggerReveal key={feature.title} delay={i * 0.07}>
+                  <div
+                    className={[
+                      'p-8 sm:p-9 flex flex-col gap-5 h-full transition-all duration-200',
+                      !isLastCol ? 'lg:border-r border-ink/8' : '',
+                      !isLastRow ? 'border-b border-ink/8' : '',
+                      feature.comingSoon
+                        ? 'opacity-60 cursor-default'
+                        : 'cursor-default hover:shadow-[inset_0_0_0_1px_rgba(255,184,0,0.25)]',
+                    ].join(' ')}
+                  >
+                    {/* Icon */}
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                      feature.comingSoon
+                        ? 'bg-ink/6 border border-ink/8'
+                        : 'bg-yellow-500/10 border border-yellow-500/20'
                     }`}>
-                      {feature.description}
-                    </p>
+                      {feature.icon}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex flex-col gap-2 flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className={`font-display font-bold text-lg ${
+                          feature.comingSoon ? 'text-ink/45' : 'text-ink'
+                        }`}>
+                          {feature.title}
+                        </h3>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-pill ${
+                          feature.comingSoon
+                            ? 'bg-muted/12 text-muted border border-muted/18'
+                            : 'bg-yellow-500/12 text-yellow-600 border border-yellow-500/22'
+                        }`}>
+                          {feature.tag}
+                        </span>
+                      </div>
+                      <p className={`text-sm leading-relaxed ${
+                        feature.comingSoon ? 'text-ink/35' : 'text-ink/55'
+                      }`}>
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </StaggerReveal>
-            </div>
-          ))}
+                </StaggerReveal>
+              )
+            })}
+          </div>
         </div>
 
         {/* Coming-soon strip */}

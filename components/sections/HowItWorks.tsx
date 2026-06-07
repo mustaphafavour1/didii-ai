@@ -118,15 +118,13 @@ export function HowItWorks() {
                 style={{ background: 'radial-gradient(ellipse, rgba(255,184,0,0.2) 0%, transparent 70%)' }}
               />
               <div
-                className="relative rounded-modal overflow-hidden mx-auto bg-ink/20"
-                style={{
-                  maxWidth: '320px',
-                  boxShadow: '0 4px 24px rgba(15,17,8,0.3), 0 24px 80px rgba(15,17,8,0.4)',
-                }}
+                className="relative overflow-hidden mx-auto"
+                style={{ maxWidth: '320px', height: '500px' }}
               >
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeStep}
+                    className="absolute inset-0"
                     initial={{ opacity: 0, scale: 1.04 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.97 }}
@@ -135,9 +133,8 @@ export function HowItWorks() {
                     <Image
                       src={STEPS[activeStep].img}
                       alt={STEPS[activeStep].title}
-                      width={320}
-                      height={560}
-                      className="object-cover w-full h-auto"
+                      fill
+                      className="object-cover"
                       sizes="320px"
                     />
                   </motion.div>

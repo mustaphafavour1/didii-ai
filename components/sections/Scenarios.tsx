@@ -121,8 +121,9 @@ export function Scenarios() {
           </div>
         </StaggerReveal>
 
-        {/* Scenario detail panel */}
+        {/* Scenario detail panel — fixed height prevents layout shift */}
         <div className="mt-8 flex justify-center">
+          <div className="relative w-full" style={{ maxWidth: '400px', height: '370px' }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -130,8 +131,7 @@ export function Scenarios() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.25 }}
-              className="rounded-2xl bg-ink overflow-hidden w-full"
-              style={{ maxWidth: '400px' }}
+              className="absolute inset-0 rounded-2xl bg-ink overflow-hidden"
             >
               {/* Before didii */}
               <div className="px-6 pt-6 pb-4 border-b border-white/8">
@@ -168,6 +168,7 @@ export function Scenarios() {
               </div>
             </motion.div>
           </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

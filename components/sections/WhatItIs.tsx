@@ -44,11 +44,10 @@ export function WhatItIs() {
                 {/* App mockup — phone frame */}
                 <div className="relative z-10">
                   <div
-                    className="relative rounded-[22px] border border-white/12 overflow-hidden mx-auto"
+                    className="relative overflow-hidden mx-auto"
                     style={{
                       width: 110,
                       aspectRatio: '9/19.5',
-                      boxShadow: '0 0 0 1px rgba(255,255,255,0.05), 0 16px 40px rgba(0,0,0,0.5), 0 0 40px rgba(255,184,0,0.1)',
                     }}
                   >
                     <Image

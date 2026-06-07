@@ -7,7 +7,7 @@ import { HeroInputCycler } from '@/components/HeroInputCycler'
 export function Hero() {
   return (
     <section className="relative min-h-screen bg-ink flex flex-col overflow-hidden" aria-label="Hero">
-      {/* Yellow aurora glow — not blue/purple */}
+      {/* Yellow aurora glow */}
       <div
         className="aurora-blob absolute top-1/4 right-0 w-[700px] h-[700px] pointer-events-none -translate-y-1/4 translate-x-1/3"
         style={{ background: 'radial-gradient(ellipse at center, rgba(255,184,0,0.18) 0%, rgba(255,184,0,0.05) 45%, transparent 72%)' }}
@@ -23,15 +23,18 @@ export function Hero() {
           {/* ── Left: Copy ─────────────────────────────────────── */}
           <div className="flex flex-col gap-7 lg:max-w-[560px]">
 
-            {/* H1 — 2 separate lines via spans */}
+            {/* H1 — 3 lines: Smarter (big) / Banking (big) / Just by Typing (current) */}
             <StaggerReveal delay={0.08}>
-              <h1
-                className="font-display font-black text-cream leading-[1.0] tracking-tight"
-                style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.8rem)' }}
-              >
-                <FunHeadline as="span">Smarter Banking</FunHeadline>
-                <br />
-                <FunHeadline as="span">Just by Typing</FunHeadline>
+              <h1 className="font-display font-black text-cream tracking-tight leading-none">
+                <span className="block" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)', lineHeight: 1.0 }}>
+                  <FunHeadline as="span">Smarter</FunHeadline>
+                </span>
+                <span className="block" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)', lineHeight: 1.0 }}>
+                  <FunHeadline as="span">Banking</FunHeadline>
+                </span>
+                <span className="block mt-1" style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.8rem)', lineHeight: 1.1 }}>
+                  <FunHeadline as="span">Just by Typing</FunHeadline>
+                </span>
               </h1>
             </StaggerReveal>
 
@@ -83,7 +86,7 @@ export function Hero() {
             </StaggerReveal>
           </div>
 
-          {/* ── Right: Phone frame + chips below ───────────────── */}
+          {/* ── Right: Phone + floating input cycler ───────────── */}
           <StaggerReveal delay={0.18} direction="right" className="flex flex-col items-center lg:items-end gap-5">
             <div className="relative">
               {/* Glow under phone */}
@@ -92,13 +95,12 @@ export function Hero() {
                 style={{ background: 'radial-gradient(ellipse, rgba(255,184,0,0.35) 0%, rgba(255,184,0,0.1) 50%, transparent 75%)' }}
               />
 
-              {/* Phone frame */}
+              {/* Phone image — no frame border */}
               <div
-                className="relative overflow-hidden rounded-[36px] border border-white/12"
+                className="relative overflow-hidden"
                 style={{
                   width: 'clamp(240px, 32vw, 300px)',
                   aspectRatio: '9/19.5',
-                  boxShadow: '0 0 0 1px rgba(255,255,255,0.05), 0 32px 64px rgba(0,0,0,0.5), 0 0 80px rgba(255,184,0,0.12)',
                 }}
               >
                 <Image
@@ -109,14 +111,14 @@ export function Hero() {
                   sizes="300px"
                   priority
                 />
+              </div>
 
-                {/* Input cycler overlay at bottom */}
-                <div
-                  className="absolute bottom-0 inset-x-0 p-3"
-                  style={{ background: 'linear-gradient(to top, rgba(15,17,8,0.95) 60%, transparent)' }}
-                >
-                  <HeroInputCycler />
-                </div>
+              {/* Floating input cycler — popover over bottom of phone */}
+              <div
+                className="absolute z-10"
+                style={{ bottom: '6%', left: 12, right: 12 }}
+              >
+                <HeroInputCycler />
               </div>
             </div>
 
