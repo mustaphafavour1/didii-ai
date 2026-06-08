@@ -37,8 +37,22 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink pt-16 pb-10 sm:pt-20 sm:pb-14">
-      <div className="max-w-2xl mx-auto px-5 sm:px-8">
+    <footer className="relative bg-ink pt-16 pb-10 sm:pt-20 sm:pb-14 overflow-hidden">
+
+      {/* Background watermark — fills full width */}
+      <div
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none select-none flex items-center justify-center"
+        aria-hidden="true"
+      >
+        <span
+          className="font-display font-black text-white/[0.025] whitespace-nowrap leading-none"
+          style={{ fontSize: 'clamp(6rem, 18vw, 18rem)' }}
+        >
+          didii.ai
+        </span>
+      </div>
+
+      <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
 
         {/* Brand + tagline above the card */}
         <div className="text-center mb-8">
@@ -54,7 +68,7 @@ export function Footer() {
         </div>
 
         {/* Rounded card */}
-        <div className="rounded-2xl border border-white/8 bg-white/[0.025] px-7 pt-8 pb-6">
+        <div className="rounded-2xl border border-white/[0.05] bg-white/[0.025] px-7 pt-8 pb-6">
 
           {/* 3 columns */}
           <div className="grid grid-cols-3 gap-6">
