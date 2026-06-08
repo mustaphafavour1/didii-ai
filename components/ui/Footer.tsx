@@ -41,12 +41,13 @@ export function Footer() {
 
       {/* Background watermark — fills full width */}
       <div
-        className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none select-none flex items-center justify-center"
+        className="absolute inset-x-0 pointer-events-none select-none flex items-center justify-center"
+        style={{ top: '50%', transform: 'translateY(calc(-50% + 60px))' }}
         aria-hidden="true"
       >
         <span
           className="font-display font-black text-white/[0.025] whitespace-nowrap leading-none"
-          style={{ fontSize: 'clamp(6rem, 18vw, 18rem)' }}
+          style={{ fontSize: 'clamp(10rem, 26vw, 32rem)' }}
         >
           didii.ai
         </span>
