@@ -47,7 +47,7 @@ export function Footer() {
       >
         <span
           className="font-display font-black text-white/[0.025] whitespace-nowrap leading-none"
-          style={{ fontSize: 'clamp(10rem, 26vw, 32rem)' }}
+          style={{ fontSize: 'clamp(9rem, 24vw, 30rem)' }}
         >
           didii.ai
         </span>
