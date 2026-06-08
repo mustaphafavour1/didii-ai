@@ -129,7 +129,7 @@ export function NoSwitching() {
           {/* Center — didii pill chip (larger) */}
           <motion.div
             className="absolute"
-            style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}
+            style={{ left: 'calc(50% - 50px)', top: 'calc(50% - 28px)', transform: 'translate(-50%, -50%)', zIndex: 10 }}
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.55, delay: 0.45, type: 'spring', stiffness: 180 }}

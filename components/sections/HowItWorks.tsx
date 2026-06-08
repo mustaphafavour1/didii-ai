@@ -118,8 +118,8 @@ export function HowItWorks() {
                 style={{ background: 'radial-gradient(ellipse, rgba(255,184,0,0.2) 0%, transparent 70%)' }}
               />
               <div
-                className="relative overflow-hidden mx-auto"
-                style={{ maxWidth: '320px', height: '500px' }}
+                className="relative mx-auto"
+                style={{ maxWidth: '320px', height: '560px' }}
               >
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -134,7 +134,7 @@ export function HowItWorks() {
                       src={STEPS[activeStep].img}
                       alt={STEPS[activeStep].title}
                       fill
-                      className="object-cover"
+                      className="object-contain object-top"
                       sizes="320px"
                     />
                   </motion.div>
